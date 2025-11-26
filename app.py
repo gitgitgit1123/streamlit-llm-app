@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import streamlit as st
-from langchain.chat_models import ChatOpenAI
-from langchain.schema import SystemMessage, HumanMessage
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage, HumanMessage
 
 # -------------------------
 # ④ 翻訳関数（戻り値あり）
