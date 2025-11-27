@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
+import os
 
-load_dotenv()
+load_dotenv()  # ← .env を読む
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 import streamlit as st
 from langchain_openai import ChatOpenAI
@@ -27,7 +30,7 @@ def translate_text(input_text: str, expert_type: str) -> str:
     llm = ChatOpenAI(
         model="gpt-4o-mini",  # 例：軽量モデル
         temperature=0.0,
-        api_key=st.secrets["OPENAI_API_KEY"]  # ← secrets.toml を使う想定
+        api_key=OPENAI_API_KEY
     )
 
     messages = [
