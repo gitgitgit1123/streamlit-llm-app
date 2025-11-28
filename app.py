@@ -38,14 +38,15 @@ def translate_text(input_text: str, expert_type: str) -> str:
         HumanMessage(content=input_text)
     ]
 
-    result = llm(messages)
+    result = llm.invoke(messages)
     return result.content
 
 
 # -------------------------
 # Streamlit UI 部分
 # -------------------------
-st.title("🌏 シンプル翻訳 Web アプリ（英語／中国語）")
+st.markdown("<h1 style='text-align: center;'>🌏 翻訳くん</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 14px;'>（日本語⇒英語or中国語）</p>", unsafe_allow_html=True)
 
 # ⑤ Webアプリの説明
 st.write("""
